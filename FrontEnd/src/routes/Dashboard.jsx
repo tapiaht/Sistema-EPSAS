@@ -11,6 +11,7 @@ export default function Dashboard() {
 
   async function getTodos() {
     const accessToken = auth.getAccessToken();
+    console.log("accessToken ->",accessToken)
     try {
       const response = await fetch(`${API_URL}/posts`, {
         method: "GET",
@@ -23,7 +24,7 @@ export default function Dashboard() {
       if (response.ok) {
         const json = await response.json();
         setTodos(json);
-        console.log('Cargando el map '+json);
+        console.log('Cargando el map '+JSON.stringify(json, null, 2));
       }
     } catch (error) {
       console.log(error);
@@ -70,12 +71,12 @@ export default function Dashboard() {
             onChange={(e) => setValue(e.target.value)}
           />
         </form>
-        {/* {todos.map((post) => (
+        {todos.map((post) => (
           <div key={post.id}>
             <h3>{post.title}</h3>
             <p>{post.completed}</p>
           </div>
-        ))} */}
+        ))}
       </div>
     </PortalLayout>
   );

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { API_URL } from "../auth/authConstants";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 import Topbar from "../scenes/global/Topbar"
 import Sidebar from "../scenes/global/Sidebary";
@@ -24,7 +26,7 @@ import AddCustomer from '../Components/AddCustomer';
 export default function PortalLayout({ children }) {
   const [theme, colorMode] = useMode();
   const auth = useAuth();
-
+  const [isSidebar, setIsSidebar] = useState(true);
   async function handleSignOut(e) {
     e.preventDefault();
 
@@ -47,11 +49,14 @@ export default function PortalLayout({ children }) {
     <>
 
     
-    <ColorModeContext.Provider value={colorMode}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      
-      <header>
+<ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+          
+          <header>
         <nav>
           <ul>
             <li>
@@ -71,41 +76,22 @@ export default function PortalLayout({ children }) {
           </ul>
         </nav>
       </header>
+            <Topbar setIsSidebar={setIsSidebar} />
+      {children}
+            <Home/>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+           
+              {/* <Route path="/contacts" element={<Contacts />} /> */}
+              {/* <Route path="/invoices" element={<Invoices />} /> */}
+              {/* <Route path="/form" element={<Form />} /> */}
+              <Route path="/employee" element={<Employee />} />
 
-      <main>{children}</main>
-          <Topbar  />
-           <Sidebar  />
-          
-
-                    {/* <Dashboard /> */}
-
-                <Home />
-                <Employee />
-                <Category />
-                <Contacts />
-                <Customer />
-                {/* <AddCategory /> */}
-                {/* <AddEmployee /> */}
-                {/* <EditEmployee /> */}
-                {/* <AddCustomer />
-                <EditCustomer /> */}
-
-                {/* <Route path='/dashboard/category' element={}></Route>
-                <Route path="/dashboard/contacts" element={} />
-                <Route path="/dashboard/customer" element={} />
-                <Route path='/dashboard/profile' element={<Profile />}></Route>
-                <Route path='/dashboard/add_category' element={}></Route>
-                <Route path='/dashboard/add_employee' element={}></Route>
-                <Route path='/dashboard/edit_employee/:id' element={}></Route>
-                <Route path='/dashboard/add_customer' element={}></Route>
-                <Route path='/dashboard/edit_customer/:id' element={}></Route> */}
-         
-            
-        
-       
-      
-    </ThemeProvider>
-  </ColorModeContext.Provider>
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   </>
   );
 }

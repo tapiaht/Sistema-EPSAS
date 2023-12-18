@@ -50,7 +50,8 @@ const Sidebar = ({ handleLogout }) => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          // background: `${colors.primary[400]} !important`,
+          background: `${colors.primary[900]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -120,7 +121,7 @@ const Sidebar = ({ handleLogout }) => {
             </Box>
           )}
           <Item title="Inicio" to="/" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />                    
-          <Item title="Empleado" to="/dashboard/employee" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
+          <Item title="Empleado" to="/employee" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
           <Item title="Categoria" to="/dashboard/category" icon={<BloodtypeIcon />} selected={selected} setSelected={setSelected} />
           <Item title="Clientes" to="/dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
           <Item title="Clientes" to="/dashboard/customer" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />

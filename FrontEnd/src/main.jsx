@@ -13,6 +13,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import Profile from "./routes/Profile";
 
 import "./index.css";
+import Employee from "./Components/Employee";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/me",
         element: <Profile />,
+      },
+      {
+        path: "/employee",
+        element: <Employee />,
       },
     ],
   },
