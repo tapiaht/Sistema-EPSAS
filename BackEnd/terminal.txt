@@ -1,0 +1,19 @@
+cd BackEnd
+yarn start
+y
+yarn start
+y
+npm install --save-dev sequelize-cli
+npx sequelize-cli model:generate --name todo --attributes id:integer, idUser:string, title:string, completed:boolean
+npx sequelize-cli model:generate --name todo --attributes id:integer,idUser:string,title:string,completed:boolean
+npx sequelize-cli init
+npx sequelize-cli model:generate --name todo --attributes id:integer,idUser:string,title:string,completed:boolean
+npx sequelize-cli db:migrate
+npm install --save-dev esm
+npx -r esm sequelize-cli db:migrate
+npx sequelize-cli db:migrate
+npx sequelize-cli model:generate --name todo --attributes id:integer,idUser:string,title:string,completed:boolean
+npx sequelize-cli model:generate --name todo --attributes id:integer,idUser:string,title:string,completed:boolean --force
+npx sequelize-cli db:migrate
+history
+doskey /history > terminal.txt
