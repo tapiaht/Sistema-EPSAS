@@ -1,5 +1,6 @@
 import express from "express";
-import User from "../schema/user.js";
+//import User from "../schema/user.js";
+import User from "../models/user.js"
 import { jsonResponse } from "../lib/jsonResponse.js";
 
 const router = express.Router();

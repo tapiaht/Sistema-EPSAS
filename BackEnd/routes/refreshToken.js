@@ -4,12 +4,13 @@ import log from "../lib/trace.js";
 import { verifyRefreshToken } from "../auth/verify.js";
 import { generateAccessToken } from "../auth/sign.js";
 import getUserInfo from "../lib/getUserInfo.js";
-import Token from "../schema/token.js";
+import Token from "../models/token.js";
 
 const router = express.Router();
 
 router.post("/", async function (req, res, next) {
   log.info("POST /api/refresh-token");
+
   const refreshToken = req.body.refreshToken;
   if (!refreshToken) {
     console.log("No se proporcionó token de actualización", refreshToken);
@@ -24,7 +25,7 @@ router.post("/", async function (req, res, next) {
     if (!tokenDocument) {
       return res.status(403).json({ error: "Token de actualización inválido" });
     }
-
+    console.log("mostrando body de refresh token "+refreshToken)
     const payload = verifyRefreshToken(tokenDocument.token);
     const accessToken = generateAccessToken(getUserInfo(payload.user));
     res.json(jsonResponse(200, { accessToken }));

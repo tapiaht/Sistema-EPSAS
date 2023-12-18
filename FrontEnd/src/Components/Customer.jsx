@@ -51,7 +51,7 @@ const Customer = () => {
           </thead>
           <tbody>
             {customer.map((e) => (
-              <tr>
+              <tr key={e.id}>
                 <td>{e.id}</td>
                 <td>{e.nombres}</td>
                 <td>{e.apellidos}</td>

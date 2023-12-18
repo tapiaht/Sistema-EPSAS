@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sequelize = new Sequelize({
+const db = new Sequelize({
   dialect: 'mysql',
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -13,11 +13,11 @@ const sequelize = new Sequelize({
 });
 
 try {
-  await sequelize.authenticate();
+  await db.authenticate();
   console.log('Connection has been established successfully.');
 } catch (error) {
   console.error('Unable to connect to the database:', error);
 }
 
-export default sequelize;
+export default db;
 

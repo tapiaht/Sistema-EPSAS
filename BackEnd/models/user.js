@@ -1,9 +1,9 @@
 import bcrypt from "bcrypt";
 import { generateAccessToken, generateRefreshToken } from "../auth/sign.js";
 import getUserInfo from "../lib/getUserInfo.js";
-import sequelize from "../utils/db.js";
+import db from "../utils/db.js";
 import { DataTypes } from 'sequelize';
-const User = sequelize.define("User", {
+const User = db.define("User", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,

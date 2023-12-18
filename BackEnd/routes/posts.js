@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import Todo from "../schema/todo.js";
+import Todo from "../models/todo.js";
 
 router.get("/", async (req, res) => {
   try {

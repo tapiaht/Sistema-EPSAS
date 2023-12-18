@@ -1,6 +1,6 @@
 import express from "express";
 
-import token from "../schema/token.js";
+import token from "../models/token.js";
 import validateToken from "../auth/validateToken.js";
 
 const router = express.Router();

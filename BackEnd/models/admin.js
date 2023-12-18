@@ -1,6 +1,6 @@
-import sequelize from "../utils/db.js";
+import db from "../utils/db.js";
 import { DataTypes } from 'sequelize';
-const Admin = sequelize.define("admin", {
+const Admin = db.define("admin", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,

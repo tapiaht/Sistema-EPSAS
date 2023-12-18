@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt'
 import multer from "multer";
 import path from "path";
-import Admin from "../schema/admin.js";
+import Admin from "../models/admin.js";
 import Category from "../models/category.js";
 import Employee from "../models/employee.js"; // Asegúrate de importar el modelo correcto
 import Customer from "../models/customer.js"; // Asegúrate de importar el modelo correcto

@@ -1,24 +1,26 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Token extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+
+import db from "../utils/db.js";
+import { DataTypes } from 'sequelize';
+const Token = db.define("token", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  token: {
+    type: DataTypes.STRING
+  },
+  createdAt: {
+    
+    type: DataTypes.DATE
+  },
+  updatedAt: {
+    
+    type: DataTypes.DATE
   }
-  Token.init({
-    id: DataTypes.INTEGER,
-    token: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Token',
-  });
-  return Token;
-};
+
+});
+
+
+
+export default Token;
