@@ -32,9 +32,9 @@ export default function Login() {
       });
       if (response.ok) {
         const json = (await response.json());
-        console.log(json);
-
         if (json.body.accessToken && json.body.refreshToken) {
+          //console.log("logueando y guardando...");
+          //console.log(json.body.accessToken+" +++ "+json.body.refreshToken);
           auth.saveUser(json);
         }
       } else {

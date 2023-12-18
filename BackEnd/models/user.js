@@ -3,6 +3,7 @@ import { generateAccessToken, generateRefreshToken } from "../auth/sign.js";
 import getUserInfo from "../lib/getUserInfo.js";
 import db from "../utils/db.js";
 import { DataTypes } from 'sequelize';
+import Token from "./token.js";
 const User = db.define("User", {
   id: {
     type: DataTypes.INTEGER,
@@ -48,16 +49,19 @@ User.prototype.createAccessToken = function () {
 User.prototype.createRefreshToken = async function () {
   const refreshToken = generateRefreshToken(getUserInfo(this));
 
-  console.error("refreshToken", refreshToken);
+  console.error("refreshToken===", refreshToken);
 
   try {
     // Guardar el token en tu base de datos MySQL aquí
-    // Puedes utilizar UserTokens.create({ token: refreshToken });
-    console.log("Token saved", refreshToken);
+    const ntoken = new Token({ token: refreshToken });
+      await ntoken.save();
+
+    
+    console.log("TOKEN GUARDADO ", refreshToken);
     return refreshToken;
   } catch (error) {
     console.error(error);
-    // throw new Error("Error creating token");
+    //throw new Error("Error creating token");
   }
 };
 

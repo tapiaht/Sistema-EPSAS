@@ -9,7 +9,7 @@ import Token from "../models/token.js";
 const router = express.Router();
 
 router.post("/", async function (req, res, next) {
-  log.info("POST /api/refresh-token");
+  //log.info("POST /api/refresh-token");
 
   const refreshToken = req.body.refreshToken;
   if (!refreshToken) {
@@ -23,9 +23,10 @@ router.post("/", async function (req, res, next) {
     const tokenDocument = await Token.findOne({where: { token: refreshToken }});
 
     if (!tokenDocument) {
+      
+      console.log("mostrando body de refresh token "+tokenDocument)
       return res.status(403).json({ error: "Token de actualización inválido" });
     }
-    console.log("mostrando body de refresh token "+refreshToken)
     const payload = verifyRefreshToken(tokenDocument.token);
     const accessToken = generateAccessToken(getUserInfo(payload.user));
     res.json(jsonResponse(200, { accessToken }));

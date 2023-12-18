@@ -51,6 +51,9 @@ export function AuthProvider({ children }) {
       return refreshToken;
     }
     const token = localStorage.getItem("token");
+    var storedToken = localStorage.getItem("token")
+    console.log("get storedtoken   ",storedToken)
+
     if (token) {
       const { refreshToken } = JSON.parse(token);
       setRefreshToken(refreshToken);
