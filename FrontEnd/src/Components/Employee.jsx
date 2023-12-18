@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import PortalLayout from "../layout/PortalLayout";
 const Employee = () => {
   const [employee, setEmployee] = useState([]);
   const navigate = useNavigate()
@@ -29,6 +29,7 @@ const Employee = () => {
     })
   } 
   return (
+    <PortalLayout>
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
         <h3>Employee List</h3>
@@ -81,6 +82,7 @@ const Employee = () => {
         </table>
       </div>
     </div>
+    </PortalLayout>
   );
 };
 

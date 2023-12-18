@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PortalLayout from '../layout/PortalLayout'
 
 const Category = () => {
 
@@ -17,6 +18,7 @@ const Category = () => {
         }).catch(err => console.log(err))
     }, [])
   return (
+    <PortalLayout>
     <div className='px-5 mt-3'>
         <div className='d-flex justify-content-center'>
             <h3>Cetegory List</h3>
@@ -42,6 +44,7 @@ const Category = () => {
         </div>
 
     </div>
+    </PortalLayout>
   )
 }
 

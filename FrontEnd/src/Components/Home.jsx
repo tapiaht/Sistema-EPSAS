@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { tokens } from "../theme";
 import Header from "../Components/Header";
 import { useTheme } from "@mui/material";
-
+// import "bootstrap-icons/font/bootstrap-icons.css"; //AUN POR REVISAR
 const Home = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

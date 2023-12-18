@@ -14,6 +14,7 @@ import Profile from "./routes/Profile";
 
 import "./index.css";
 import Employee from "./Components/Employee";
+import Category from "./Components/Category";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/employee",
         element: <Employee />,
+      },
+      {
+        path: "/categoria",
+        element: <Category />,
       },
     ],
   },

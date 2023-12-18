@@ -122,7 +122,7 @@ const Sidebar = ({ handleLogout }) => {
           )}
           <Item title="Inicio" to="/" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />                    
           <Item title="Empleado" to="/employee" icon={<PeopleOutlinedIcon />} selected={selected} setSelected={setSelected} />
-          <Item title="Categoria" to="/dashboard/category" icon={<BloodtypeIcon />} selected={selected} setSelected={setSelected} />
+          <Item title="Categoria" to="/categoria" icon={<BloodtypeIcon />} selected={selected} setSelected={setSelected} />
           <Item title="Clientes" to="/dashboard/contacts" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
           <Item title="Clientes" to="/dashboard/customer" icon={<ContactsOutlinedIcon />} selected={selected} setSelected={setSelected} />
           

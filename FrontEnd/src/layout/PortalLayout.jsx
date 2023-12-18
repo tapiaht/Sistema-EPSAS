@@ -6,7 +6,7 @@ import { API_URL } from "../auth/authConstants";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+//import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 
 import Topbar from "../scenes/global/Topbar"
 import Sidebar from "../scenes/global/Sidebary";
@@ -63,6 +63,9 @@ export default function PortalLayout({ children }) {
               <Link to="/dashboard">Dashboard</Link>
             </li>
             <li>
+              <Link to="/employee">empleados</Link>
+            </li>
+            <li>
               <Link to="/me">Profile</Link>
             </li>
             <li>
@@ -78,18 +81,18 @@ export default function PortalLayout({ children }) {
       </header>
             <Topbar setIsSidebar={setIsSidebar} />
       {children}
-            <Home/>
-            <Routes>
+            {/* <Home/> */}
+            {/* <Routes>
               <Route path="/" element={<Dashboard />} />
            
-              {/* <Route path="/contacts" element={<Contacts />} /> */}
-              {/* <Route path="/invoices" element={<Invoices />} /> */}
-              {/* <Route path="/form" element={<Form />} /> */}
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/form" element={<Form />} />
               <Route path="/employee" element={<Employee />} />
 
-            </Routes>
+            </Routes> */}
           </main>
-        </div>
+          </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
   </>
